@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT ME</title>
+
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+              background-color: #222D11;
+              overflow: hidden;
+              font-family: Poppins, sans-serif;
+        }
+        #nav{
+            background:#222D11;
+            height: 80px;
+            width: 100%;
+        }
+        #nav h2{
+            font-family: "Tangerine", cursive;
+            font-weight: 700;
+            color: #F1F986;
+            line-height: 80px;
+            margin: 0;
+            font-size: 2.5rem;
+            margin-left: 100px;
+        }
+        #nav ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 80px;
+            align-items: center;
+            float: right;
+            margin-right: 100px;
+            margin-top: -80px;
+            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif; 
+            text-decoration: none;
+            gap: 40px;
+        }
+        #nav ul li a{
+            color: #F1F986;
+            text-decoration: none;
+        }
+        #nav ul li a#active{
+            border-bottom: 2px solid #fff;
+            padding-bottom: 4px;
+            color: #fff;
+        }
+        #nav ul li a:hover{
+                color: #fff;
+            }
+
+         #box{
+                width: 40%;
+                height: 80%;
+                background-color: #222D11;
+                margin-top: 30px;
+                border-radius: 15px;
+                position: absolute;
+                top: 8%;
+                left: 10%;
+  }
+
+  #box h2{
+        color: #F1F986;
+        font-size: 5rem;
+        margin-top: 40px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    #logo{
+        width: 350px;
+        height: 350px;
+        position: absolute;
+        top: 30%;
+        left: 60%;
+        animation: logo 4s ease-in-out infinite;
+    }
+
+    #logo:hover{
+        animation-play-state: paused;
+    }
+
+    @keyframes logo {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(10deg); }
+            50% { transform: translateY(10px) rotate(-10deg); }
+            75% { transform: translateY(-5px) rotate(5deg); }
+        }
+
+    #box p{
+        color: #F1F986;
+        font-size: 1rem;
+        position: relative;
+        top: -10%;
+    }
+    #box h4{
+        color: #F1F986;
+        position: relative;
+        font-size: 2rem;
+        top: -15%;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    #box{
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    
+
+    @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+    </style>
+</head>
+<body>
+
+    <div id="nav">
+        <h2>Aesthetically Jayb</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="page1.html">Contact</a></li>
+            <li><a href="page2.html">Skills</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="#" id="active">About Me</a></li>
+        </ul>
+    </div>
+    
+    <div id="box">
+        <h2>About Me</h2>
+        <hr color="#F1F986" style="position: relative; top: -12%;">
+        <p>A dedicated Graphic Designer focused on creating visually engaging and purposeful designs. Specializes in transforming ideas into clear, effective visual solutions that strengthen brand identity and communication. Known for strong attention to detail and a commitment to delivering work that is both visually refined and strategically impactful. Continuously developing skills to stay aligned with evolving design trends and industry standards.</p>
+        <h4>Experiences</h4>
+        <hr color="#F1F986" style="position: relative; top: -26.5%; width: 68%; left: 16%;">
+        <p style="position: relative; top: -25%;">Design Assistant | Neo Meno <br> - Taguig, 2023 <br> Graphic Designer | Jailicious <br> - Baguio, 2024</p>
+    </div>
+
+    <img src="Logo.png" alt="Logo" id="logo">
+</body>
+</html>
