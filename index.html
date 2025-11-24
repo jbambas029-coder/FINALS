@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>
+
+        body{
+            margin: 0;
+            min-height: 100vh; /* Use min-height */
+            display: flex;
+            justify-content: center;
+              background-color: #222D11;
+              overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+              font-family: Poppins, sans-serif;
+        }
+        #nav{
+            background:#222D11;
+            height: 80px;
+            width: 100%;
+            position: fixed; /* Keep nav fixed */
+            top: 0;
+            z-index: 1000;
+        }
+
+        #nav h2{
+            font-family: "Tangerine", cursive;
+            font-weight: 700;
+            color: #fff;
+            line-height: 80px;
+            margin: 0;
+            font-size: 2.5rem;
+            margin-left: 100px;
+        }
+
+        #nav ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 80px;
+            align-items: center;
+            float: right;
+            margin-right: 100px;
+            margin-top: -80px;
+            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif; 
+            text-decoration: none;
+            gap: 40px;
+        }
+        #nav ul li a{
+            color: #F1F986;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        #nav ul li a:hover{
+            color: #fff;
+        }
+
+        #nav ul li a#active{
+            border-bottom: 2px solid #fff;
+            text-transform: none;
+            padding-bottom: 4px;
+            color: #fff;
+        }
+
+ .slider-container{
+  max-width: 30%;
+  height: 60vh;
+  background-image: url('Images/bg-img.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 19%;
+  top: 26%;
+}
+.slider-images{
+  display: flex;
+  align-items: center;
+  gap: 21px;
+}
+.slider-images img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+    border: 3px solid #F1F986;
+}
+.slider-img{
+  width: 100px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.7s ease;
+}
+.slider-images .slider-img:first-child, .slider-images .slider-img:last-child{
+  height: 280px;
+}
+.slider-images .slider-img:nth-child(2), .slider-images .slider-img:nth-child(6){
+   height: 320px;
+}
+.slider-images .slider-img:nth-child(3), .slider-images .slider-img:nth-child(4), .slider-images .slider-img:nth-child(5){
+   height: 400px;
+}
+.details{
+  position: absolute;
+  bottom: 43px;
+  left: 43px;
+}
+.details h2{
+  font-family: Poppins, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: left;
+  line-height: 44px;
+  text-align: left;
+  color: #fff;
+  text-transform: uppercase;
+  transition: 0.7s ease;
+  display: none;
+}
+.details p{
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+  line-height: 33px;
+  text-align: left;
+  color: #fff;
+  text-transform: uppercase;
+  transition: 0.7s ease;
+  display: none;
+}
+.slider-img.active{
+  width: 366px !important;
+  height: 450px !important;
+}
+.slider-img.active h1{
+   display: none;
+}
+.slider-img.active .details p, .slider-img.active .details h2{
+  display: block;
+}
+    #catchy{
+        position: absolute;
+        top: 23.5%;
+        left: 63%;
+        color: #F1F986;
+    }
+
+    #catchy h2{
+        font-size: 3rem;
+        margin: 0;
+    }
+
+    #catchy h4{
+        font-size: 1.5rem;
+        margin: 0;
+        margin-top: -10px;
+        opacity: 0.7;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    #catchy p{
+        width: 400px;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        opacity: 0.9;
+    }
+
+    #catchy button{
+        background-color: #F1F986;
+        color: #222D11;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        margin-top: 25px;
+        border: 2px solid #F1F986;
+    }
+
+    #catchy button:hover{
+        background-color: #222D11;
+        color: #F1F986;
+        border: 2px solid #F1F986;
+    }
+
+    #catchy a{
+        color: #F1F986;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-left: 20px;
+        opacity: 0.9;
+    }
+
+    #catchy {
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+#catchy {
+  animation-delay: 1s;
+}
+
+.slider-img {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+.slider-img:nth-child(1) { animation-delay: 0.2s; }
+.slider-img:nth-child(2) { animation-delay: 0.4s; }
+.slider-img:nth-child(3) { animation-delay: 0.6s; }
+.slider-img:nth-child(4) { animation-delay: 0.8s; }
+
+#nav ul li:hover{
+    transform: scale(1.2);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Responsive Media Queries --- */
+
+@media (max-width: 1200px) {
+    #catchy {
+        left: 55%;
+    }
+}
+
+@media (max-width: 992px) {
+    /* Tablet adjustments */
+    #nav h2 { margin-left: 40px; font-size: 2rem; }
+    #nav ul { margin-right: 40px; gap: 20px; font-size: 1rem; }
+
+    .slider-container {
+        max-width: 45%;
+        height: 50vh;
+        left: 5%;
+    }
+
+    .slider-images { gap: 10px; }
+    .slider-img { width: 60px; }
+    .slider-images .slider-img:first-child, .slider-images .slider-img:last-child { height: 200px; }
+    .slider-images .slider-img:nth-child(2), .slider-images .slider-img:nth-child(6) { height: 250px; }
+    .slider-images .slider-img:nth-child(3), .slider-images .slider-img:nth-child(4), .slider-images .slider-img:nth-child(5) { height: 300px; }
+    .slider-img.active { width: 280px !important; height: 350px !important; }
+
+    #catchy {
+        left: 55%;
+        top: 20%;
+    }
+    #catchy h2 { font-size: 2.5rem; }
+    #catchy h4 { font-size: 1.2rem; }
+    #catchy p { width: 350px; font-size: 0.9rem; }
+}
+
+@media (max-width: 768px) {
+    /* Mobile adjustments */
+    body {
+        overflow-y: auto;
+        /* Removed padding-top: 80px; as nav is no longer strictly fixed/tall */
+        padding-top: 0;
+        display: block; /* Allows content to flow vertically */
+    }
+
+    #nav {
+        display: block; /* Allow h2 and ul to stack */
+        position: static; /* Make nav static so it scrolls with the page */
+        height: auto;
+        padding: 10px 20px;
+        text-align: center; /* Center navigation content */
+    }
+    #nav h2 {
+        font-size: 1.8rem;
+        line-height: normal;
+        margin-left: 0;
+        margin-bottom: 10px;
+        float: none;
+    }
+    #nav ul {
+        position: static;
+        margin: 0;
+        height: auto;
+        float: none;
+        gap: 15px;
+        font-size: 0.9rem;
+        margin-right: 0;
+        display: flex; /* Display the list */
+        align-items: center; /* Center menu items */
+        margin-top: 0; /* Reset negative margin */
+    }
+    #nav ul li {
+        margin: 5px 0;
+    }
+    #nav ul li a#active {
+        border-bottom: none;
+    }
+    
+    /* Catchy section (Placed first in the HTML flow) */
+    #catchy {
+        position: static;
+        padding: 20px;
+        text-align: center;
+        margin-top: 20px;
+        width: 90%;
+        max-width: 450px;
+        margin: 20px auto;
+        animation: none; /* Disable animation for better mobile performance/initial load */
+        opacity: 1; /* Ensure visible */
+    }
+    #catchy h2 { font-size: 2rem; }
+    #catchy h4 { font-size: 1rem; margin-top: 0; }
+    #catchy p { width: 100%; max-width: none; text-align: center; margin: 10px auto; }
+    #catchy button, #catchy a {
+        display: inline-block; /* Revert to inline or use flex for buttons */
+        margin: 15px 10px;
+        width: auto;
+    }
+    #catchy a { margin-left: 10px; }
+    
+    /* Slider section (Placed second in the HTML flow, so it appears below #catchy) */
+    .slider-container {
+        position: static;
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        margin: 20px auto 40px auto;
+        background-image: none;
+        max-width: none; /* Override max-width for better fit */
+    }
+    .slider-images {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+    }
+    /* Reset image dimensions for a better-flowing grid/list */
+    .slider-img,
+    .slider-img.active,
+    .slider-images .slider-img:not(.active) {
+        width: 95% !important;
+        height: auto !important;
+        max-width: 300px;
+        margin-bottom: 10px;
+        cursor: pointer; /* Keep interactivity */
+        animation: none; /* Disable animation for better mobile performance/initial load */
+        opacity: 1; /* Ensure visible */
+    }
+
+    .slider-images img {
+        height: auto;
+        max-height: 250px;
+    }
+    
+    .details { display: none; }
+    .slider-img h1 { display: none; }
+    .slider-img.active .details p, .slider-img.active .details h2 { display: none; } 
+}
+
+
+    </style>
+
+</head>
+<body>
+    <div id="nav">
+        <h2>Aesthetically Jayb</h2>
+        <ul>
+            <li><a href="#" id="active">Home</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Skills.html">Skills</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="About.html">About Me</a></li>
+        </ul>
+    </div>
+
+    <div id="catchy">
+        <h2>Hi, Jayb is here</h2>
+        <h4>your Graphic Designer</h4>
+        <p>Welcome to my creative space, where ideas come to life through design. I am a passionate Graphic Designer focused on crafting visually compelling and meaningful digital experiences. My work blends creativity, strategy, and attention to detail to bring concepts into powerful visual stories. Explore my portfolio to see how I turn ideas into impactful designs.</p>
+        <button>Explore Now</button>
+        <a href="">▶ Watch Video</a>
+    </div>
+
+<section class="slider-container">
+  <div class="slider-images">
+
+    <div class="slider-img">
+      <img src="Images/1.png" alt="1" />
+      <div class="details">
+      </div>
+    </div>
+
+    <div class="slider-img">
+      <img src="Images/2.png" alt="2" />
+      <h1></h1>
+      <div class="details">
+      </div>
+    </div>
+
+    <div class="slider-img">
+      <img src="Images/3.png" alt="3" />
+      <div class="details">
+      </div>
+    </div>
+
+    <div class="slider-img active">
+      <img src="Images/4.png" alt="4" />
+      <div class="details">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".slider-img").on("click", function () {
+          $(".slider-img").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+    </script>
+</body>
+</html>
