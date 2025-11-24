@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skills</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+<style>
+/* -------------------------------------- */
+/* --- Global & Body Styling (Updated)--- */
+/* -------------------------------------- */
+body {
+    margin: 0;
+    /* Removed fixed height and display: flex; to allow content flow */
+    background-color: #222D11;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    font-family: Poppins, sans-serif;
+    padding-top: 80px; /* Space for the fixed navigation */
+    min-height: 100vh;
+}
+
+/* -------------------------------------- */
+/* --- Navigation (Adjusted Margins)--- */
+/* -------------------------------------- */
+#nav { 
+    background: #222D11; 
+    height: 80px; 
+    width: 100%; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 1000;
+}
+#nav h2 { 
+    font-family: "Tangerine", cursive; 
+    font-weight: 700; 
+    color: #fff; 
+    line-height: 80px; 
+    margin: 0; 
+    font-size: 2.5rem; 
+    margin-left: 5%; /* Responsive margin */
+}
+#nav ul { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    height: 80px; 
+    align-items: center; 
+    float: right; 
+    margin-right: 5%; /* Responsive margin */
+    margin-top: -80px; 
+    gap: 20px; /* Reduced gap */
+    font-size: 1rem; 
+}
+#nav ul li a { color: #F1F986; text-decoration: none; transition: 0.3s; }
+#nav ul li a:hover { color: #fff; }
+#nav ul li a#active { border-bottom: 2px solid #fff; padding-bottom: 4px; color: #fff; }
+#nav ul li:hover { transform: scale(1.1); }
+
+/* -------------------------------------- */
+/* --- Main Content Wrapper (NEW) --- */
+/* -------------------------------------- */
+
+.skills-page-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* -------------------------------------- */
+/* --- Text Section (Updated) --- */
+/* -------------------------------------- */
+
+#text {
+    /* REMOVED absolute positioning */
+    text-align: center;
+    margin-bottom: 30px;
+    width: 90%;
+    max-width: 700px;
+}
+#text h2 { 
+    color: #F1F986; 
+    /* Removed absolute left/top */
+    font-size: 3rem; 
+    font-family: 'Times New Roman', serif;
+    margin-bottom: 10px;
+}
+#text p { 
+    color: #F1F986; 
+    /* Removed absolute left/top */
+    font-size: 1rem; 
+    width: 100%; 
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* -------------------------------------- */
+/* --- Skills Grid (Updated for Responsiveness) --- */
+/* -------------------------------------- */
+#skills-container { 
+    /* REMOVED absolute positioning */
+    width: 90%; 
+    display: grid; 
+    /* --- FIX: Force 4 equal columns --- */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; 
+    justify-content: center; 
+    margin-bottom: 40px;
+    padding: 0 10px;
+}
+.card { 
+    /* Card width is now managed by the grid template */
+    width: auto; 
+    padding: 20px; 
+    border-radius: 14px; 
+    cursor: pointer; 
+    transition: 0.35s ease-in-out; 
+    color:#f1f986;
+    border: 2px solid #f1f986;
+    font-size: 1.1rem; 
+    text-align: left; 
+    font-weight: 500; 
+    letter-spacing: 0.5px; 
+    position: relative; 
+    overflow: hidden; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    height: 20px;
+    justify-content: flex-start;
+}
+.card i { font-size: 1.8rem; }
+
+/* Glow Effect (Kept as is) */
+.card::before { content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(241,249,134,0.25) 0%, rgba(0,0,0,0) 60%); transform: scale(0); transition: 0.4s; }
+.card:hover::before { transform: scale(1); }
+.card:hover { transform: translateY(-4px) scale(1.03); background: #F1F986; color: #222D11; box-shadow: 0 0 20px rgba(241, 249, 134, 0.6); }
+
+/* -------------------------------------- */
+/* --- Soft/Tech Containers (Updated) --- */
+/* -------------------------------------- */
+
+/* New wrapper to manage the two columns */
+.skills-list-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 90%;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.soft, .tech { 
+    /* REMOVED absolute positioning */
+    position: relative;
+    flex: 1 1 45%; /* Allow both to take up roughly half the space */
+    height: auto; 
+    width: auto; 
+    min-width: 300px;
+    padding: 20px; /* Added internal padding */
+    border: 2px solid #F1F986; 
+    border-radius: 20px; /* Softened border-radius */
+    box-shadow: 0 0 25px rgba(241, 249, 134, 0.4); 
+    transition: 0.5s ease;
+    color:#F1F986; 
+}
+.soft h2, .tech h2 { 
+    text-align: center; 
+    margin-top: 0; 
+    font-size: 2.5rem; 
+    font-family: 'Times New Roman', serif; 
+}
+.soft ul, .tech ul { 
+    list-style: none; 
+    margin-top: 10px; 
+    padding-left: 0; /* Align lists properly */
+    text-align: left;
+}
+.soft ul li, .tech ul li { 
+    position: relative; 
+    padding-left: 28px; 
+    margin-bottom: 8px; 
+    font-family: 'Poppins', sans-serif; 
+    color: #F1F986; 
+    cursor: pointer; 
+    transition: 0.3s ease; 
+}
+.soft ul li::before, .tech ul li::before { 
+    content: "\f111"; 
+    font-family: "Font Awesome 6 Free"; 
+    font-weight: 900; 
+    color: #F1F986; 
+    font-size: 10px; 
+    position: absolute; 
+    left: 0; 
+    top: 5px; 
+}
+.soft ul li:hover, .tech ul li:hover { transform: translateX(8px); color: #fff; font-weight: 600; }
+
+/* Hover effects adapted to new structure */
+.soft:hover, .tech:hover {
+    background-color: #F1F986;
+    color: #222D11;
+}
+.soft:hover h2, .tech:hover h2 {
+    color: #222D11;
+}
+.soft:hover ul li::before, .tech:hover ul li::before {
+    color: #222D11;
+}
+.soft:hover ul li, .tech:hover ul li {
+    color: #222D11 !important;
+}
+.soft:hover ul li:hover, .tech:hover ul li:hover {
+    color: black !important;
+}
+
+/* Modal and Stars (Kept as is) */
+.modal-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: none; align-items: center; justify-content: center; z-index: 99999999999; }
+.modal { background: #F1F986; color: black; padding: 25px; width: 350px; border-radius: 12px; box-shadow: 0 0 25px rgba(0,0,0,0.4); text-align: center; }
+.close-btn { margin-top: 15px; padding: 10px 15px; background: #222D11; color: white; border: none; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+.close-btn:hover { transform: scale(1.05); }
+.stars i { font-size: 1.8rem; color: #ccc; margin: 0 2px; transition: transform 0.3s ease, color 0.3s ease; }
+.stars i.filled { color: #FFD700; text-shadow: 0 0 8px #FFD700; transform: scale(0); animation: starPop 0.3s forwards; }
+
+/* -------------------------------------- */
+/* --- Media Queries --- */
+/* -------------------------------------- */
+
+/* Tablet/Small Desktop adjustments */
+@media (max-width: 1000px) {
+    #nav h2, #nav ul {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .skills-list-wrapper {
+        flex-direction: column; /* Stack Soft and Tech skills vertically */
+        align-items: center;
+        gap: 20px;
+    }
+    .soft, .tech {
+        width: 90%; /* Take up more width when stacked */
+        min-width: unset;
+        max-width: 450px;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 550px) {
+    #nav {
+        display: block; /* Allow h2 and ul to stack */
+        position: static; /* Make nav static so it scrolls with the page */
+        height: auto;
+        padding: 10px 20px;
+        text-align: center; /* Center navigation content */
+    }
+    #nav ul {
+        position: static;
+        margin: 0;
+        height: auto;
+        float: none;
+        gap: 15px;
+        font-size: 0.9rem;
+        margin-right: 0;
+        display: flex; /* Display the list */
+        align-items: center; /* Center menu items */
+        margin-top: 0; 
+        justify-content: center; /* Center the list items */
+    }
+    #nav ul li {
+        margin: 5px 0;
+    }
+    #nav ul li a#active {
+        border-bottom: none;
+    }
+    #nav h2 {
+        text-align: center;
+        width: 100%;
+        margin-left: 0;
+    }
+    #text h2 {
+        font-size: 2.5rem;
+    }
+    #skills-container {
+        /* Force single column layout for skill cards */
+        grid-template-columns: 1fr; 
+        gap: 15px;
+        width: 95%;
+    }
+    .card {
+        justify-content: center;
+        height: auto;
+        padding: 15px;
+    }
+    .soft, .tech {
+        padding: 15px;
+        border-radius: 12px;
+    }
+    .soft h2, .tech h2 {
+        font-size: 2rem;
+    }
+}
+
+
+/* -------------------------------------- */
+/* --- Keyframes (Updated to remove absolute dependency) --- */
+/* -------------------------------------- */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes starPop { from { transform: scale(0); } to { transform: scale(1); } }
+
+/* Apply animation to new wrapper elements */
+.skills-page-wrapper > div {
+    animation: fadeIn 1s ease forwards;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="nav">
+    <h2>Aesthetically Jayb</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="Skills.html" id="active">Skills</a></li>
+        <li><a href="Portfolio.html">Portfolio</a></li>
+        <li><a href="About.html">About Me</a></li>
+    </ul>
+</div>
+
+<div class="skills-page-wrapper">
+
+    <div id="text">
+        <h2>My Top Skill</h2>
+        <p>I’m able to perform tasks here and apply my refined skills with good understanding.</p>
+    </div>
+
+    <div id="skills-container">
+        <div class="card" data-skill="User Interface" data-description="I design intuitive, clean, and visually cohesive interfaces." data-stars="5"><i class="fas fa-paint-brush"></i>User Interface</div>
+        <div class="card" data-skill="User Experience" data-description="I create smooth and meaningful user experiences." data-stars="5"><i class="fas fa-user-check"></i>User Experience</div>
+        <div class="card" data-skill="Web Design" data-description="I design responsive, modern, and aesthetic websites." data-stars="5"><i class="fas fa-desktop"></i>Web Design</div>
+        <div class="card" data-skill="App Design" data-description="I craft mobile app designs with smooth navigation." data-stars="4"><i class="fas fa-mobile-alt"></i>App Design</div>
+        <div class="card" data-skill="Canva" data-description="I create polished graphics and branding content using Canva." data-stars="5"><i class="fas fa-brush"></i>Canva</div>
+        <div class="card" data-skill="HTML" data-description="I build structured and semantic web content using HTML." data-stars="5"><i class="fab fa-html5"></i>HTML</div>
+        <div class="card" data-skill="CSS" data-description="I style websites to create visually engaging layouts." data-stars="5"><i class="fab fa-css3-alt"></i>CSS</div>
+        <div class="card" data-skill="Javascript" data-description="I create interactive and dynamic website features using JS." data-stars="4"><i class="fab fa-js"></i>Javascript</div>
+    </div>
+    
+    <div class="skills-list-wrapper">
+        <div class="soft">
+            <h2>Soft Skills</h2>
+            <ul>
+                <li>Creativity</li>
+                <li>Communication</li>
+                <li>Attention to Detail</li>
+                <li>Time Management</li>
+                <li>Problem-Solving</li>
+                <li>Adaptability</li>
+                <li>Collaboration</li>
+                <li>Openness to Feedback</li>
+                <li>Critical Thinking</li>
+                <li>Storytelling</li>
+            </ul>
+        </div>
+    
+        <div class="tech">
+            <h2>Tech Skills</h2>
+            <ul>
+                <li>UI Design</li>
+                <li>UX Design</li>
+                <li>Web Design</li>
+                <li>App Design</li>
+                <li>Front-End Development</li>
+                <li>HTML & CSS</li>
+                <li>JavaScript</li>
+                <li>Canva</li>
+                <li>Figma</li>
+                <li>Visual Studio Code</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+<div class="modal-bg" id="modalBg">
+    <div class="modal" id="modalBox">
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <div class="stars" id="modalStars"></div>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script>
+const cards = document.querySelectorAll('.card');
+const modalBg = document.getElementById('modalBg');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalStars = document.getElementById('modalStars');
+
+cards.forEach(card => {
+    card.addEventListener('click', () => {
+        modalTitle.textContent = card.getAttribute('data-skill');
+        modalDesc.textContent = card.getAttribute('data-description');
+
+        // generate stars
+        let starsCount = parseInt(card.getAttribute('data-stars'));
+        modalStars.innerHTML = "";
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('i');
+            star.classList.add(i <= starsCount ? 'fas' : 'far', 'fa-star');
+            if (i <= starsCount) star.classList.add('filled');
+            modalStars.appendChild(star);
+        }
+
+        modalBg.style.display = 'flex';
+    });
+});
+
+function closeModal() {
+    modalBg.style.display = 'none';
+}
+
+window.addEventListener('click', function(e) {
+    if (e.target === modalBg) closeModal();
+});
+</script>
+
+</body>
+</html>

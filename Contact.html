@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+<style>
+/* -------------------------------------- */
+/* 1. BASE STYLES & LAYOUT (Desktop First) */
+/* -------------------------------------- */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #222D11;
+    font-family: Poppins, sans-serif;
+    overflow-x: hidden; /* Only prevent horizontal scroll */
+    padding-top: 80px; /* Space for the fixed nav */
+}
+
+/* Navigation - Kept Fixed */
+#nav {
+    background: #222D11;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+#nav h2 {
+    font-family: "Tangerine", cursive;
+    font-weight: 700;
+    color: #fff;
+    line-height: 80px;
+    margin: 0;
+    font-size: 2.5rem;
+    margin-left: 100px;
+}
+#nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 80px;
+    align-items: center;
+    float: right;
+    margin-right: 100px;
+    margin-top: -80px;
+    font-size: 1.1rem;
+    gap: 40px;
+}
+#nav ul li:hover { transform: scale(1.2); }
+#nav ul li a { color: #F1F986; text-decoration: none; transition: 0.3s; }
+#nav ul li a#active { border-bottom: 2px solid #fff; padding-bottom: 4px; color: #fff; }
+#nav ul li a:hover { color: #fff; }
+
+
+/* Main Wrapper (Flexbox for centering content) */
+.contact-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Limits max width for aesthetic appeal */
+    margin: 0 auto; /* Center the wrapper */
+    padding: 40px 20px;
+    gap: 40px; /* Space between the left and right sections */
+}
+
+/* --- Left Section: Profile and Socials --- */
+.left-section {
+    position: relative;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-width: 300px; /* Ensure minimum size */
+}
+
+#circle {
+    height: 400px;
+    width: 400px;
+    border-radius: 100%;
+    background-color: #F1F986;
+    /* Use relative positioning for placement within flex item */
+    position: relative; 
+    top: 70px;
+    left: 0;
+    margin-bottom: -350px; /* Overlap the image */
+    z-index: 1;
+    animation: slideIn 0.7s ease-out forwards;
+}
+
+.me img {
+    height: 500px; /* Set a fixed height for consistency */
+    position: relative;
+    z-index: 2;
+    animation: slideIn 0.7s ease-out forwards;
+}
+
+.socials {
+    position: relative;
+    text-align: center;
+    color: #F1F986;
+    font-family: 'Times New Roman', serif;
+    margin-top: 40px;
+    width: 100%;
+    animation: slideIn 0.7s ease-out forwards;
+}
+.social-icons a {
+    color: #F1F986;
+    font-size: 2rem;
+    margin: 0 15px;
+    transition: 0.3s;
+}
+.social-icons a:hover {
+    color: #222D11;
+    background-color: #F1F986;
+    padding: 8px;
+    border-radius: 50%;
+    transform: scale(1.2);
+}
+
+/* --- Right Section: Text and Form --- */
+.right-section {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 50px; /* Give some space */
+}
+
+.contac h1 {
+    position: relative;
+    color: #F1F986;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 4rem;
+    font-style: italic;
+    margin-top: 0;
+    animation: slideIn 0.7s ease-out forwards;
+}
+
+.contac p {
+    position: relative;
+    color: #F1F986;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    animation: slideIn 0.7s ease-out forwards;
+}
+
+/* Contact Form - Brought into the flow */
+.contact-form {
+    position: relative; /* Removed absolute positioning */
+    width: 90%; /* Max width relative to its container */
+    max-width: 450px;
+    height: auto;
+    background: rgba(241, 249, 134, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(241, 249, 134, 0.4);
+    font-family: Poppins, sans-serif;
+    color: #F1F986;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%; /* Changed to 100% to fill padding area */
+    box-sizing: border-box; /* Include padding/border in width calculation */
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 2px solid #F1F986;
+    border-radius: 10px;
+    background: rgba(34, 45, 17, 0.7);
+    color: #F1F986;
+    font-size: 1rem;
+    font-family: Poppins, sans-serif;
+    outline: none;
+    transition: 0.3s;
+}
+.contact-form textarea { height: 100px; }
+.contact-form input:focus,
+.contact-form textarea:focus { border-color: #fff; box-shadow: 0 0 8px #F1F986; }
+
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #F1F986;
+    color: #222D11;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+.contact-form button:hover { background-color: #fff; color: #222D11; box-shadow: 0 0 15px #F1F986; transform: scale(1.03); }
+
+/* Modal Styles - UNCHANGED */
+.modal-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 10000; }
+.modal { background: #F1F986; color: #222D11; padding: 25px 30px; width: 300px; border-radius: 12px; text-align: center; box-shadow: 0 0 25px rgba(0,0,0,0.4); animation: fadeIn 0.3s ease-in-out; }
+.close-btn { margin-top: 15px; padding: 8px 15px; background: #222D11; color: #fff; border: none; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+.close-btn:hover { transform: scale(1.05); }
+
+/* Keyframes - UNCHANGED */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+
+/* -------------------------------------- */
+/* 2. MEDIA QUERIES (Mobile/Tablet) */
+/* -------------------------------------- */
+
+/* Tablet/Small Desktop (up to 1000px) */
+@media (max-width: 1000px) {
+    #nav h2 { margin-left: 50px; }
+    #nav ul { margin-right: 50px; gap: 20px; }
+    .contact-wrapper {
+        flex-direction: column; /* Stack the left and right sections */
+        gap: 20px;
+        padding-top: 20px;
+    }
+    .left-section, .right-section {
+        width: 90%;
+        max-width: 600px; /* Limit stacked width */
+        align-items: center;
+    }
+    .contac h1, .contac p {
+        text-align: center;
+    }
+    .contact-form {
+        max-width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobile (up to 550px) */
+@media (max-width: 550px) {
+    body {
+        /* Adjust body padding to accommodate the two-row mobile nav */
+        padding-top: 140px; 
+    }
+    /* Navigation Adjustments for Mobile */
+    #nav {
+        display: block;
+        height: auto; /* Allow nav height to grow */
+        padding: 10px 0;
+        text-align: center;
+    }
+    #nav h2 {
+        text-align: center;
+        width: 100%;
+        margin-left: 0;
+        line-height: 1.2;
+        font-size: 2rem;
+        margin-bottom: 5px;
+    }
+    #nav ul {
+        float: none;
+        height: auto;
+        margin: 0 auto;
+        justify-content: center;
+        gap: 15px;
+        font-size: 0.9rem;
+        margin-top: 0;
+    }
+
+    /* Content adjustments */
+    .me img {
+        height: 300px;
+    }
+    #circle {
+        height: 200px;
+        width: 200px;
+        margin-bottom: -150px;
+    }
+    .contac h1 {
+        font-size: 3rem;
+    }
+    .contac p {
+        font-size: 1rem;
+    }
+    .socials {
+        margin-top: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+    <div id="nav">
+        <h2>Aesthetically Jayb</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Contact.html" id="active">Contact</a></li>
+            <li><a href="Skills.html">Skills</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="About.html">About Me</a></li>
+        </ul>
+    </div>
+
+    <div class="contact-wrapper">
+        
+        <div class="left-section">
+            <div id="circle"></div>
+            <div class="me">
+                <img src="Images/11.png" alt="Aesthetically Jayb Profile Image">
+            </div>
+            
+            <div class="socials">
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/jyambas" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jybryan_?igsh=MTVtNjg4cmNjd3p2bw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:jgambas@ccc.edu.ph"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="contac">
+                <h1>Get In Touch</h1>
+                <p>Let’s create something amazing together! Feel free to reach out for design projects, collaborations, or just to say hi.</p>
+            </div>
+
+            <div class="contact-form">
+                <form action="mailto:jgambas@ccc.edu.ph" method="post" enctype="text/plain">
+                    <input type="text" name="name" placeholder="Your Name" required><br>
+                    <input type="email" name="email" placeholder="Your Email" required><br>
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea><br>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    <div id="thankYouModal" class="modal-bg">
+        <div class="modal">
+            <h2>Thank You!</h2>
+            <p>Your message has been sent successfully.</p>
+            <button class="close-btn">Close</button>
+        </div>
+    </div>
+    
+    <script>
+        const form = document.querySelector('form');
+        const modalBg = document.getElementById('thankYouModal');
+        const closeBtn = document.querySelector('.close-btn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default mailto behavior
+
+            // You can optionally perform the mailto action here if needed, 
+            // but the form itself is set up for mailto submission.
+            // For demonstration, we just show the modal:
+            modalBg.style.display = 'flex';
+            
+            // Optional: Reset form
+            form.reset();
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modalBg.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(e) {
+            if (e.target === modalBg) {
+                modalBg.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

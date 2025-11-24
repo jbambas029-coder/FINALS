@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Aesthetically Jayb</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ------------------------------------------- */
+/* 1. BASE STYLES (Applies to ALL devices)     */
+/* ------------------------------------------- */
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    background-color: #222D11;
+    overflow-x: hidden; 
+    font-family: Poppins, sans-serif;
+}
+#nav{
+    background:#222D11;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+#nav h2{
+    font-family: "Tangerine", cursive;
+    font-weight: 700;
+    color: #fff;
+    line-height: 80px;
+    margin: 0;
+    font-size: 1.8rem;
+}
+#nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 80px;
+    align-items: center;
+    font-size: 0.9rem;
+    gap: 15px;
+    text-decoration: none;
+}
+#nav ul li a{
+    color: #F1F986;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 5px 0;
+}
+#nav ul li a#active{
+    border-bottom: 2px solid #fff;
+    color: #fff;
+}
+#nav ul li a:hover{
+    color: #fff;
+}
+
+h1{
+    color: #F1F986;
+    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    top: 5%;
+    font-size: 5rem;
+    letter-spacing: 2px;
+    opacity: 0.1;
+    line-height: 0.8;
+    font-style: italic;
+    text-align: center;
+    width: 100%;
+    pointer-events: none;
+}
+.scroll-wrapper {
+    position: relative;
+    top: 100px;
+    left: auto;
+    width: 90%;
+    max-width: 1200px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    cursor: grab;
+    border: 2px solid #F1F986;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(241,249,134,0.4);
+    background: rgba(34,45,17,0.95);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+.scroll-wrapper::-webkit-scrollbar {
+    height: 3px;
+}
+.scroll-wrapper::-webkit-scrollbar-thumb {
+    background: #F1F986;
+    border-radius: 6px;
+}
+.scroll-wrapper:active {
+    cursor: grabbing;
+}
+
+.item {
+    display: inline-flex;
+    flex-direction: column; 
+    flex-shrink: 0; 
+    margin-right: 20px;
+    border-radius: 10px;
+    width: 280px; 
+    overflow: hidden; 
+    background: #3a4a27; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+}
+
+.item img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    display: block;
+    box-sizing: border-box; 
+}
+.item-content {
+    padding: 15px;
+    padding-top: 20px; 
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    flex-grow: 1; 
+    box-sizing: border-box;
+}
+.item h2 {
+    font-size: 1.1rem;
+    margin: 0 0 10px 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bold;
+    color: #F1F986;
+}
+.item p {
+    font-size: 0.8rem;
+    color: #ccc;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    flex-grow: 1; 
+    overflow: visible; 
+    margin-right: 10px; 
+}
+button {
+    padding: 8px 15px;
+    background: #F1F986;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: Poppins, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    align-self: flex-start;
+    white-space: nowrap;
+}
+button a {
+    text-decoration: none;
+    color: #222D11;
+}
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+h5{
+    position: static; 
+    margin: 10px auto;
+    color: #F1F986;
+    font-family: Poppins, sans-serif;
+    font-size: 0.9rem;
+    animation: blink 3s infinite;
+}
+#toggleScrollBtn {
+    position: static; 
+    margin: 10px auto 20px auto;
+    padding: 5px 10px;
+    background: none;
+    border: 2px solid #F1F986;
+    color: #F1F986;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: Poppins, sans-serif;
+}
+
+/* --------------------------------------------------------------------------------- */
+/* 2. MOBILE MEDIA QUERY (Targets screens up to 767px for general mobile fixes)      */
+/* --------------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+    /* Enforce fixed item heights on smaller screens to prevent content overlap */
+    .item {
+        height: 380px; 
+    }
+    .item img {
+        height: 160px; /* Fixed height for image area */
+    }
+}
+
+/* --------------------------------------------------------------------------------- */
+/* 3. SMALL MOBILE MEDIA QUERY (Targets screens up to 550px for nav stacking)        */
+/* --------------------------------------------------------------------------------- */
+@media (max-width: 550px) {
+    /* Rules provided by user for nav stacking and centralization */
+    #nav {
+        display: block; /* Allow h2 and ul to stack */
+        position: static; /* Make nav static so it scrolls with the page */
+        height: auto;
+        padding: 10px 20px;
+        text-align: center; /* Center navigation content */
+    }
+    #nav ul {
+        position: static;
+        margin: 0;
+        height: auto;
+        float: none;
+        gap: 15px;
+        font-size: 0.9rem;
+        margin-right: 0;
+        display: flex; /* Display the list */
+        align-items: center; /* Center menu items */
+        margin-top: 0; 
+        justify-content: center; /* Center the list items */
+    }
+    #nav ul li {
+        margin: 5px 0;
+    }
+    #nav ul li a#active {
+        border-bottom: none;
+    }
+    #nav h2 {
+        text-align: center;
+        width: 100%;
+        margin-left: 0;
+    }
+    #toggleScrollBtn{
+        top: 95%;
+        right: 10%;
+        position: absolute;
+        margin: 0;
+    }
+    h1{
+        top: 20%;
+        font-size: 3rem;
+        letter-spacing: 5px;
+    }
+}
+
+/* ----------------------------------------------------------- */
+/* 4. DESKTOP MEDIA QUERY (min-width: 768px and larger screens)*/
+/* ----------------------------------------------------------- */
+@media (min-width: 768px) {
+    #nav h2{
+        font-size: 2.5rem;
+        margin-left: 100px;
+    }
+    #nav ul{
+        font-size: 1.1rem;
+        gap: 40px;
+        margin-right: 100px;
+    }
+    h1{
+        top: -12%;
+        font-size: 14rem;
+        letter-spacing: 5px;
+    }
+    .scroll-wrapper {
+        position: absolute;
+        top: 20%;
+        left: 8.5%;
+        width: 80%;
+        height: 60%;
+        padding: 20px;
+        align-items: stretch; 
+    }
+    .item {
+        width: 428px; 
+        height: 100%; /* Use full height of wrapper */
+    }
+    .item img {
+        height: 60%;
+        border-radius: 10px 10px 0 0;
+    }
+    .item-content {
+        height: 40%; 
+        padding: 20px;
+        padding-top: 25px;
+    }
+    .item h2 {
+        font-size: 1.3rem;
+    }
+    .item p {
+        font-size: 0.9rem;
+    }
+    h5{
+        top: 90%;
+        left: 10%;
+        position: absolute;
+        margin: 0;
+    }
+    #toggleScrollBtn{
+        top: 90%;
+        right: 10%;
+        position: absolute;
+        margin: 0;
+    }
+}
+</style>
+</head>
+<body>
+    <div id="lightbox" style="
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.85);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    ">
+        <img id="lightbox-img" src="" style="
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #000;
+        ">
+    </div>
+
+    <div id="nav">
+        <h2>Aesthetically Jayb</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Skills.html">Skills</a></li>
+            <li><a href="Portfolio.html" id="active">Portfolio</a></li>
+            <li><a href="About.html">About Me</a></li>
+        </ul>
+    </div>
+
+    <h1>PORTFOLIO <br> PORTFOLIO <br>PORTFOLIO </h1>
+
+    <div class="scroll-wrapper" id="autoScroll">
+        
+        <div class="item">
+            <img src="Images/5.png" alt="Mogu Mogu Print Media Design">
+            <div class="item-content">
+                <h2>PRINT MEDIA</h2>
+                <p>A vibrant Mogu Mogu print design that reflects my<br> strength in creating fun, polished, and visually<br> striking promotional graphics.</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="Images/6.png" alt="Web Design for Egis Cafe">
+            <div class="item-content">
+                <h2>WEB DESIGN&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button><a href="egiscafe.site" target="_blank">Go to website</a></button></h2> 
+                <p>TA design blending warm café tones and soft gradients <br> to achieve cohesive, inviting color harmony.</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="Images/7.png" alt="Digital Marketing Graphic">
+            <div class="item-content">
+                <h2>DIGITAL MARKETING GRAPHICS</h2>
+                <p>A graphic that uses bold colors, dynamic typography, <br> and engaging layouts to create visually striking, <br> attention-grabbing content.</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="Images/8.png" alt="Brand Design for Food Product">
+            <div class="item-content">
+                <h2>BRAND DESIGN</h2>
+                <p>This sample reflects my ability to develop a cohesive <br> brand identity that effectively communicates the <br> brand's essence through color and typography.</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="Images/9.png" alt="Second Brand Design Example">
+            <div class="item-content">
+                <h2>BRAND DESIGN</h2>
+                <p>This brand design reflects my ability to craft clean, <br> cohesive visual identities that communicate a <br> product’s personality with clarity and style.</p>
+            </div>
+        </div>
+    </div>
+    
+    <h5>*click the image to enlarge</h5>
+    <button id="toggleScrollBtn">
+        Auto Scroll: ON
+    </button>
+<script>
+const scrollBox = document.getElementById("autoScroll");
+const toggleBtn = document.getElementById("toggleScrollBtn");
+
+// AUTOSCROLL SETTINGS
+let speed = 1;
+let direction = 1;
+let autoScrollEnabled = true;
+
+// Start auto scroll interval
+let autoScroll = setInterval(scrollFunc, 15);
+
+function scrollFunc() {
+    scrollBox.scrollLeft += speed * direction;
+
+    if (scrollBox.scrollLeft >= scrollBox.scrollWidth - scrollBox.clientWidth) {
+        direction = -1;
+    }
+    if (scrollBox.scrollLeft <= 0) {
+        direction = 1;
+    }
+}
+
+// Toggle button click
+toggleBtn.addEventListener("click", () => {
+    if (autoScrollEnabled) {
+        clearInterval(autoScroll);
+        toggleBtn.textContent = "Auto Scroll: OFF";
+        toggleBtn.style.background = "#ccc";
+        toggleBtn.style.color = "#333";
+    } else {
+        autoScroll = setInterval(scrollFunc, 15);
+        toggleBtn.textContent = "Auto Scroll: ON";
+        toggleBtn.style.background = "none";
+        toggleBtn.style.color = "#F1F986";
+    }
+    autoScrollEnabled = !autoScrollEnabled;
+});
+
+// DRAG SCROLL
+let isDown = false;
+let startX;
+let scrollLeft;
+
+scrollBox.addEventListener("mousedown", (e) => {
+    isDown = true;
+    // Pause auto scroll when user starts dragging
+    clearInterval(autoScroll);
+    autoScrollEnabled = false;
+    toggleBtn.textContent = "Auto Scroll: OFF";
+    toggleBtn.style.background = "#ccc";
+    toggleBtn.style.color = "#333";
+
+    startX = e.pageX - scrollBox.offsetLeft;
+    scrollLeft = scrollBox.scrollLeft;
+});
+
+scrollBox.addEventListener("mouseleave", () => {
+    isDown = false;
+});
+
+scrollBox.addEventListener("mouseup", () => {
+    isDown = false;
+});
+
+scrollBox.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scrollBox.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollBox.scrollLeft = scrollLeft - walk;
+});
+
+// LIGHTBOX
+document.querySelectorAll(".item img").forEach(img => {
+    img.addEventListener("click", () => {
+        document.getElementById("lightbox-img").src = img.src;
+        document.getElementById("lightbox").style.display = "flex";
+    });
+});
+
+document.getElementById("lightbox").addEventListener("click", () => {
+    document.getElementById("lightbox").style.display = "none";
+});
+</script>
+
+</body>
+</html>
